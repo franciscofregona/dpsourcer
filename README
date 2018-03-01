@@ -1,0 +1,17 @@
+dpsourcer.py
+
+This script is free to use and modify, on a non commercial application, per http://creativecommons.org/licenses/by-nc/4.0/
+
+This script analizes a path in the filesystem and tries to put together a list of the directories within, on which the size of each directory does not overcome certain values of size and number of files.
+Beneath a certain depth, the script obtains the numbers itself, invoking itself recursively. After said depth, it calls for the O.S.'s <du> and <ls> to quickly estimate size and number of files values, without further recursion (and drastically cutting the run times).
+
+
+==The problem==
+HP (Now MicroFocus) Data Protector back up software client "walks" the filesystem to be copied during a back up procedure.
+Said walker hangs forever and timeouts, failing the back up operation, in some filesystems that are too "big" (being "big" some combination of the number of files within, the size of said files and the lenght of the path.)
+
+==The solution==
+Reducing somehow the size of the tree to be explored reduces the time it takes the walker to return. So the problem is now how to programatically cut the tree into branches that are smaller than some value and, of course, include every directory in the main tree.
+In a way: taking a "big" source of backup and turning it into smaller sources.
+
+This script does that.
