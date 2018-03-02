@@ -15,3 +15,7 @@ Reducing somehow the size of the tree to be explored reduces the time it takes t
 In a way: taking a "big" source of backup and turning it into smaller sources.
 
 This script does that.
+
+dpcomposer.py
+
+This script takes the json exit from the previous and turns it into a datalist file fragment, to add into an actual Data Protect job definition file (datalist).
