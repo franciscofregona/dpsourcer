@@ -249,6 +249,7 @@ Nombre del servidor: {}
 	#Composicion del diccionario de salida para json
 	dic = {}
 	dic["servidor"] = servidor
+	dic['vruta'] = vruta
 	dic["arbol"] = analizar(vruta, profundidad)
 	logging.info("""
 Directorio analizado:
@@ -266,7 +267,9 @@ Directorio analizado:
 	########## Imprimir la salida
 	# archivosalida es el archivo pasado por parametro.
 	# Y como defaultea a sys.stdout, si no se paso nada, imprime por consola.
-	json.dump(dic['salida'],args.archivosalida)
+	# json.dump(dic['salida'],args.archivosalida)
+	otrodic = {'salida': dic['salida'], 'servidor': dic['servidor'], 'vruta': dic['vruta']}
+	json.dump(otrodic,args.archivosalida)
 
 	logging.debug("""
 ------------------

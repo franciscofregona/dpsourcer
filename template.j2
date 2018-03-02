@@ -1,0 +1,7 @@
+{% for group in groups %}
+FILESYSTEM "{{group.description}}" {{group.client}}:"{{group.basepath}}"
+{
+	-trees{% for path in group.trees %}
+		"{{path}}"{% endfor %}
+}
+{% endfor %}
